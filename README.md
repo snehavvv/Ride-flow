@@ -9,15 +9,13 @@ Traditional ride-sharing often lacks granular control over safety preferences an
 
 ## 🛑 Problem Statement
 1.  **Safety Concerns**: Female passengers often feel unsafe with unknown male drivers during late-night or long-distance rides.
-2.  **Lack of Transparency**: Riders often have little insight into their impact (CO2 savings) or their driver's detailed performance history.
-3.  **Administrative Overhead**: Managing driver approvals and platform health manually is slow and prone to errors.
+2.   **Administrative Overhead**: Managing driver approvals and platform health manually is slow and prone to errors.
 
 ## ✅ The Solution
 1.  **Women's Safety First**: A dedicated "Women Only" feature that prioritizes matching female passengers with female drivers.
 2.  **Real-time Interaction**: WebSocket-driven ride requests and status updates.
-3.  **Eco-Friendly Tracking**: Automatic carbon footprint calculation for every ride.
-4.  **Automated Onboarding**: Streamlined driver registration with an Admin approval dashboard.
-5.  **Data-Driven Insights**: Integrated Airflow DAGs and an Admin Analytics dashboard for monitoring platform performance.
+3.  **Automated Onboarding**: Streamlined driver registration with an Admin approval dashboard.
+
 
 ---
 
@@ -29,7 +27,6 @@ RideFlow follows a containerized, service-oriented architecture:
 -   **API Layer**: A high-speed FastAPI backend implementing JWT-based authentication, WebSocket management, and RESTful endpoints.
 -   **Data Layer**: 
     -   **PostgreSQL**: The primary relational database for users, rides, and profiles.
-    -   **Airflow**: A separate data orchestration layer for running analytics DAGs.
 -   **Orchestration**: Docker Compose manages the lifecycle of the Database, Backend, Frontend, and pgAdmin services.
 
 ---
@@ -53,7 +50,6 @@ RideFlow follows a containerized, service-oriented architecture:
 ### **DevOps & Data**
 - **Containerization**: Docker & Docker Compose
 - **Migrations**: Alembic
-- **Workflow**: Apache Airflow (ETL & Analytics)
 - **Monitoring**: pgAdmin 4
 
 ---
