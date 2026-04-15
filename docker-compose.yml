@@ -1,0 +1,59 @@
+services:
+  postgres:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: rideflow_user
+      POSTGRES_PASSWORD: rideflow_password
+      POSTGRES_DB: rideflow_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U rideflow_user -d rideflow_db" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./rideflow-backend
+    ports:
+      - "8000:8000"
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    environment:
+      - DATABASE_URL=postgresql://rideflow_user:rideflow_password@postgres:5432/rideflow_db
+      - JWT_SECRET=super_secret_production_key_here
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./rideflow-backend:/app
+
+  frontend:
+    build:
+      context: ./rideflow-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - WATCHPACK_POLLING=true # Force hot-reload to check for file changes
+    depends_on:
+      - backend
+    volumes:
+      - ./rideflow-frontend:/app
+      - /app/node_modules
+      # Removed - /app/.next to prevent locking stale builds
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@rideflow.com
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres_data:

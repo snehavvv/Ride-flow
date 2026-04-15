@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-page: #f3f4f6; /* Gray 100 as seen in login/register bg */
+  --bg-card: rgba(255, 255, 255, 0.9); /* High clarity white */
+  --border-glass: rgba(0, 0, 0, 0.05);
+  --text-primary: #111827; /* Gray 900 */
+  --text-muted: #6b7280; /* Gray 500 */
+  --accent-primary: #10b981; /* Brand Emerald */
+  --accent-secondary: #059669; /* Darker Emerald */
+}
+
+@layer base {
+  body {
+    @apply font-inter bg-[var(--bg-page)] text-[var(--text-primary)] antialiased min-h-screen overflow-x-hidden;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(16, 185, 129, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.05) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-outfit tracking-tight;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-[var(--bg-card)] backdrop-blur-xl border border-[var(--border-glass)] shadow-[0_8px_30px_rgb(0,0,0,0.04)];
+  }
+
+  .glass-panel {
+    @apply bg-white/90 backdrop-blur-2xl border border-black/[0.03] shadow-xl;
+  }
+
+  .btn-primary {
+    @apply bg-[var(--accent-primary)] text-white font-bold rounded-full px-8 py-3.5 transition-all duration-300 hover:shadow-[0_8px_20px_rgba(16,185,129,0.3)] hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-2;
+  }
+
+  .btn-secondary {
+    @apply glass text-[var(--text-primary)] font-bold rounded-full px-8 py-3.5 hover:bg-black/5 transition-all duration-300 active:scale-[0.98] flex items-center justify-center gap-2;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent text-[var(--text-muted)] rounded-xl px-4 py-2 transition-all duration-300 hover:bg-black/5 hover:text-[var(--text-primary)] flex items-center justify-center gap-2;
+  }
+
+  .input-base {
+    @apply w-full bg-white border border-gray-200 rounded-xl px-4 py-3.5 text-[var(--text-primary)] outline-none transition-all duration-300 focus:border-[#10B981] focus:ring-1 focus:ring-[#10B981]/20 placeholder-gray-400 font-medium;
+  }
+
+  .card-white {
+    @apply glass rounded-2xl transition-all duration-500 hover:border-emerald-500/20 hover:shadow-lg;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[var(--accent-primary)] to-[var(--accent-secondary)];
+  }
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
