@@ -31,8 +31,10 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:3000", 
         "http://127.0.0.1:3000",
-        "http://localhost:8000" # Self-reference
+        "http://localhost:8000", # Self-reference
+        "https://ride-flow-bl6zxf79p-snehavarghese-9305s-projects.vercel.app" # The user's specific Vercel app
     ], 
+    allow_origin_regex="https://.*\.vercel\.app", # Allow any Vercel preview environments
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
