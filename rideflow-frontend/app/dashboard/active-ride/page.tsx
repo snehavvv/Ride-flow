@@ -66,7 +66,7 @@ export default function ActiveRidePage() {
      return (
        <div className="card-white p-16 text-center max-w-2xl mx-auto mt-10">
           <h3 className="text-xl font-bold text-gray-800 mb-2">No active ride</h3>
-          <p className="text-gray-500 mb-6">You don't currently have an active ride assignment.</p>
+          <p className="text-gray-500 mb-6">You don&apos;t currently have an active ride assignment.</p>
           <button onClick={() => router.push('/dashboard/available-rides')} className="btn-primary px-8 py-3">Find Rides</button>
        </div>
      );
@@ -138,7 +138,7 @@ export default function ActiveRidePage() {
                     <p className="text-[10px] font-black uppercase tracking-widest">Parcel Delivery</p>
                  </div>
                  <div className="space-y-2">
-                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-tight">What's being sent?</p>
+                    <p className="text-[10px] font-bold text-gray-400 uppercase tracking-tight">What&apos;s being sent?</p>
                     <p className="text-sm font-medium text-gray-700 leading-relaxed bg-white/50 p-3 rounded-xl border border-white">
                        {ride.parcel_description || "No description provided."}
                     </p>

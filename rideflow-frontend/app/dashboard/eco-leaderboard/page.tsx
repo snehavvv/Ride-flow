@@ -101,7 +101,7 @@ export default function EcoLeaderboardPage() {
               <div>
                  <h4 className="font-bold text-blue-900">How is this calculated?</h4>
                  <p className="text-sm text-blue-700/80 mt-1 leading-relaxed">
-                   We compare your ride's emissions with a standard 170g/km baseline. By choosing smaller vehicles, bikes, or shared rides, you contribute to a sustainable future.
+                   We compare your ride&apos;s emissions with a standard 170g/km baseline. By choosing smaller vehicles, bikes, or shared rides, you contribute to a sustainable future.
                  </p>
               </div>
            </div>
@@ -162,7 +162,7 @@ export default function EcoLeaderboardPage() {
                  <div className="inline-block bg-white/10 px-4 py-2 rounded-full mb-4">
                     <p className="text-[10px] font-black uppercase tracking-widest text-[#10B981]">Stage: {userTotal < 1000 ? 'Sapling' : userTotal < 5000 ? 'Young Tree' : 'Ancient Oak'}</p>
                  </div>
-                 <p className="text-xs text-gray-400 font-medium px-4">Great job! You've offset as much CO₂ as a young tree does in 6 months.</p>
+                 <p className="text-xs text-gray-400 font-medium px-4">Great job! You&apos;ve offset as much CO₂ as a young tree does in 6 months.</p>
               </div>
            </div>
 

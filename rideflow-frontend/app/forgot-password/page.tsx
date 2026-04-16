@@ -10,7 +10,7 @@ export default function ForgotPasswordPage() {
           <span className="text-2xl font-bold">?</span>
         </div>
         <h2 className="text-2xl font-bold text-[#111827]">Reset your password</h2>
-        <p className="text-[#6B7280] text-sm mt-2 mb-8">Enter your email and we'll send you instructions to reset your password.</p>
+        <p className="text-[#6B7280] text-sm mt-2 mb-8">Enter your email and we&apos;ll send you instructions to reset your password.</p>
         
         <form className="space-y-6">
           <input type="email" placeholder="name@example.com" className="input-base" required />

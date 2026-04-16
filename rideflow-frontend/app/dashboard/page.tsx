@@ -171,7 +171,7 @@ export default function DashboardPage() {
           {stats?.approval_status !== "approved" ? (
             <motion.div variants={item} className="glass p-10 text-center border-2 border-dashed border-amber-200 bg-amber-50">
               <h3 className="text-2xl font-bold text-amber-600 mb-3">Application Pending</h3>
-              <p className="text-gray-500 font-medium">Your driver application is currently being reviewed by an admin. You'll be able to accept rides once approved.</p>
+              <p className="text-gray-500 font-medium">Your driver application is currently being reviewed by an admin. You&apos;ll be able to accept rides once approved.</p>
             </motion.div>
           ) : (
             <>

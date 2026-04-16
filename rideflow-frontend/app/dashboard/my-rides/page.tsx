@@ -82,7 +82,7 @@ export default function MyRidesPage() {
       {rides.length === 0 ? (
         <div className="card-white p-16 text-center">
             <h3 className="text-xl font-bold text-gray-800 mb-2">No rides found</h3>
-            <p className="text-gray-500 mb-6">Looks like you haven't booked any rides yet.</p>
+            <p className="text-gray-500 mb-6">Looks like you haven&apos;t booked any rides yet.</p>
             <button onClick={() => window.location.href='/dashboard/book-ride'} className="btn-primary px-8 py-3">Book Your First Ride</button>
         </div>
       ) : (

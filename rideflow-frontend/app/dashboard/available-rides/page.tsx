@@ -196,7 +196,7 @@ export default function DriverDashboardPage() {
             <Loader2 className="animate-spin text-[var(--accent-primary)] mx-auto mb-6" size={48} />
             <h3 className="text-xl font-bold text-[var(--accent-primary)] mb-2">Searching for passengers...</h3>
             <p className="text-[var(--text-muted)] max-w-md mx-auto line-clamp-2 italic">
-              "Great work! Staying online increases your chances of getting high-value rides."
+              &quot;Great work! Staying online increases your chances of getting high-value rides.&quot;
             </p>
         </div>
       ) : (

@@ -257,7 +257,7 @@ export default function AdminPanel() {
                             {r.rating ? (
                                <div className="text-xs">
                                   <span className="text-amber-500 font-bold">{r.rating} ★</span>
-                                  <p className="text-slate-500 truncate max-w-[150px] italic">"{r.feedback}"</p>
+                                  <p className="text-slate-500 truncate max-w-[150px] italic">&quot;{r.feedback}&quot;</p>
                                </div>
                             ) : (
                                <span className="text-slate-400">-</span>
