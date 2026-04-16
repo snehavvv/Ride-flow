@@ -4,6 +4,12 @@ RideFlow is a comprehensive, micro-architected ride-sharing platform designed wi
 
 ---
 
+## 🌐 Live Demo
+- **Frontend (Vercel)**: [https://ride-flow-bl6zxf79p-snehavarghese-9305s-projects.vercel.app/](https://ride-flow-bl6zxf79p-snehavarghese-9305s-projects.vercel.app/)
+- **Backend API (Render)**: [https://ride-flow-eqdc.onrender.com/docs](https://ride-flow-eqdc.onrender.com/docs)
+
+---
+
 ## 🎯 Motive
 Traditional ride-sharing often lacks granular control over safety preferences and platform-wide transparency. RideFlow was built to empower users—especially female passengers—by providing a secure environment where trust is built through role verification and specific safety features like Female-to-Female driver matching.
 
@@ -53,6 +59,21 @@ RideFlow follows a containerized, service-oriented architecture:
 - **Monitoring**: pgAdmin 4
 
 ---
+
+## ⚙️ ETL Details and Usage
+RideFlow incorporates a 2-DAG ETL pipeline managed by Apache Airflow:
+- **Extraction**: Reads raw operational data (rides, driver logs, passenger requests) from the primary PostgreSQL database.
+- **Transformation**: Aggregates ride data, calculates platform-wide carbon footprint offsets, and prepares driver performance metrics.
+- **Loading**: Inserts the processed data into analytics tables for the Admin dashboard.
+- **Usage**: The pipeline runs on a daily schedule and can be manually monitored/triggered via the Airflow Web UI using the system's fixed credentials (`admin123`).
+
+## 🔄 CI/CD Pipeline
+The project utilizes **GitHub Actions** for robust continuous integration and deployment:
+- **Backend CI**: Automatically sets up Python, installs dependencies, and runs `pytest` to verify API integrity and database models.
+- **Frontend CI**: Executes `npm install` and strict `eslint` checks on the Next.js frontend to catch syntax or accessibility errors before merging.
+- **Continuous Deployment**: 
+    - The Backend dynamically deploys via Render using Blueprint (`render.yaml`) Infrastructure as Code.
+    - The Frontend deploys flawlessly to Vercel via seamless GitHub branch tracking.
 
 ## 🛠️ Quick Start (Docker)
 
