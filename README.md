@@ -111,5 +111,3 @@ The repository is sanitized and ready for production:
 - Passwords are encrypted using Bcrypt with standard salts.
 - CORS policies are strictly enforced to allow only trusted origins.
 
----
-*Developed with ❤️ by the RideFlow Team.*
