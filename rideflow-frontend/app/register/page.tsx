@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Loader2, Eye, EyeOff, Check, X, Car } from "lucide-react";
 import toast from "react-hot-toast";
+import { BASE_URL } from "@/lib/api";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -70,7 +71,7 @@ export default function RegisterPage() {
     setLoading(true);
     setEmailError(false);
     try {
-      const res = await fetch("http://localhost:8000/auth/register", {
+      const res = await fetch(`${BASE_URL}/auth/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -98,7 +99,7 @@ export default function RegisterPage() {
 
         // If driver, register the vehicle info
         if (formData.apply_as_driver) {
-          await fetch("http://localhost:8000/drivers/register", {
+          await fetch(`${BASE_URL}/drivers/register`, {
             method: "POST",
             headers: { 
               "Content-Type": "application/json",

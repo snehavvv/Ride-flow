@@ -72,8 +72,8 @@ export default function DriverDashboardPage() {
       fetchAvailableRides();
       
       // Real-Time WebSocket for new rides
-      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const wsUrl = `${protocol}//localhost:8000/ws/${driver.user_id}?role=driver&gender=${driver.gender || 'male'}`;
+      const baseUrl = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000/ws";
+      const wsUrl = `${baseUrl}/${driver.user_id}?role=driver&gender=${driver.gender || 'male'}`;
       ws = new WebSocket(wsUrl);
 
       ws.onmessage = (event) => {

@@ -1,6 +1,6 @@
 import { authHeaders } from "./auth";
 
-const BASE_URL = "http://localhost:8000";
+export const BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export async function apiFetch(path: string, options: RequestInit = {}) {
   const res = await fetch(`${BASE_URL}${path}`, {

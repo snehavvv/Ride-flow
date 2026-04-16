@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Eye, EyeOff, Loader2, Users, Car, ShieldCheck } from "lucide-react";
 import toast from "react-hot-toast";
+import { BASE_URL } from "@/lib/api";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -29,7 +30,7 @@ export default function LoginPage() {
       params.append('username', formData.email);
       params.append('password', formData.password);
 
-      const res = await fetch("http://localhost:8000/auth/login", {
+      const res = await fetch(`${BASE_URL}/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: params,

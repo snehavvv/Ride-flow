@@ -45,10 +45,8 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
   React.useEffect(() => {
     if (mounted && user) {
       const role = userIsAdmin ? "admin" : userIsDriver ? "driver" : "passenger";
-      // Use relative path for WebSocket if possible, but here we use absolute
-      const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-      const host = window.location.hostname; // usually localhost
-      const wsUrl = `${protocol}//${host}:8000/ws/${user.user_id}?role=${role}&gender=${user.gender || "unknown"}`;
+      const baseUrl = process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000/ws";
+      const wsUrl = `${baseUrl}/${user.user_id}?role=${role}&gender=${user.gender || "unknown"}`;
       
       console.log("Connecting to WebSocket:", wsUrl);
       let ws = new WebSocket(wsUrl);
